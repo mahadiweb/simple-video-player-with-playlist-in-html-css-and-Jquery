@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Video playlist</title>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<style type="text/css">
 		*{
@@ -63,6 +63,18 @@
 			height: 100%;
 			outline: none;
 			object-fit: fill;
+		}
+		@media(max-width: 768px){
+			.container{
+				width: 100%;
+				flex-direction: column;
+			}
+			.container .main-video{
+				width: 100%;
+			}
+			.container .video-list{
+				width: 100%;
+			}
 		}
 	</style>
 </head>
