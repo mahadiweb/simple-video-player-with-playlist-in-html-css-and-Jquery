@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Video playlist</title>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			background: linear-gradient(65deg, #f1c40f 50%, #333 50.1%);
+		}
+		.container{
+			background: #fff;
+			height: 450px;
+			width: 950px;
+			display: flex;
+			box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+		}
+		.container .video-list{
+			width: 20%;
+			padding: 10px;
+			background: red;
+		}
+		.container .video-list button{
+			width: 100%;
+			height: 105px;
+			padding: 10px;
+			margin: 2px 0px;
+			cursor: pointer;
+			animation: slideIn 0.8s;
+			border:none;
+			background: #fff;
+		}
+		.container .video-list button.active,
+		.container .video-list button:hover{
+			box-shadow: 0 0 0 3px #333 inset;
+		}
+		@keyframes slideIn {
+		  0% {
+		    transform: translateY(+100%);
+		    opacity: 0;
+		  }
+		  100% {
+		    transform: translateY(0);
+		    opacity: 1;
+		  }
+		}
+		.container .main-video{
+			width: 80%;
+			background: #000;
+		}
+		.container .main-video video{
+			width: 100%;
+			height: 100%;
+			outline: none;
+			object-fit: fill;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+
+<!-- video player -->
+<div class="main-video">
+	<video src="2.mp4" controls=""></video>
+</div>
+
+<!-- video playlist -->
+<div class="video-list">
+	<button src="1.mp4">1</button>
+	<button src="2.mp4">2</button>
+	<button src="3.mp4">3</button>
+</div>
+
+
+</div>
+<script>
+	$(document).ready(function(){
+		$('.video-list button').click(function() {
+			$(this).addClass('active').siblings().removeClass('active');
+			let src = $(this).attr('src');
+			$('.main-video video').attr('src',src);
+		});
+	})
+</script>
+</body>
+</html>
